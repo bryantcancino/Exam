@@ -48,17 +48,6 @@ public class Perimeter {
 		return cleanPoints;
 	}
 
-	private static Integer repeatedHorizontalPoints(ArrayList<Point> points, Integer toCheckValue) {
-
-		int c = 0;
-		for (Point element : points) {
-			if (element.x == toCheckValue) {
-				c++;
-			}
-		}
-		return c;
-	}
-
 	public static ArrayList<Point> cleanHorizontalPoints(ArrayList<Point> points) {
 
 		Collections.sort(points, new Comparator<Point>() {
@@ -83,15 +72,18 @@ public class Perimeter {
 
 		Integer nextValueX = null;
 		for (int i = 0; i < points.size(); i++) {			
-
+			
 			if (i < points.size() - 1) {
 				nextValueX = points.get(i + 1).x;
+				
+				if(i < points.size() - 2 && 
+						points.get(i).x == points.get(i + 1).x &&
+						points.get(i).x == points.get(i + 2).x) {
+					points.remove(i+1);	
+				}
+				
 			} else {
 				nextValueX = null;
-			}
-			
-			if (repeatedHorizontalPoints(points, points.get(i).x)>2) {
-				points.remove(i+1);
 			}
 			
 			if (nextValueX != null && points.get(i).x != nextValueX) {

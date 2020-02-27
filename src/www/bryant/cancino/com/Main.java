@@ -26,17 +26,18 @@ public class Main {
 
 	public static void main(String[] args) {
 		ArrayList<Point> points = new ArrayList<Point>();
-		
-		points.add(new Point(3, 15));
-		points.add(new Point(6, 12));
-		points.add(new Point(2, 10));
-		points.add(new Point(16, 5));
+
 		points.add(new Point(13, 10));
 		points.add(new Point(12, 0));
 		points.add(new Point(2, 10));
 		points.add(new Point(2, 5));
 		points.add(new Point(17, 1));
 		points.add(new Point(17, 1));
+		points.add(new Point(3, 15));
+		points.add(new Point(6, 12));
+		points.add(new Point(2, 10));
+		points.add(new Point(16, 5));
+
 
 		if(!validationArray(points)) {
 			System.out.println("Check the format");
